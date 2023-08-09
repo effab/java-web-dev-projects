@@ -1,7 +1,7 @@
 package org.launchcode;
 
 import java.util.Scanner;
-public class milesPerGallon {
+public class MPG {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
