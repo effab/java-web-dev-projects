@@ -1,18 +1,18 @@
 package org.launchcode;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Menu {
-    private Date lastUpdated;
-    private ArrayList<MenuItem> items;
+    private LocalDate d;
+    private LocalDate lastUpdated = null;
+    private ArrayList<MenuItem> i;
+    private ArrayList<MenuItem> items = null;
 
-    public Menu(Date d, ArrayList<MenuItem> i) {
-        this.lastUpdated = d;
-        this.items = i;
+    public Menu() {
     }
 
-    public void setLastUpdated(Date lastUpdated) {
+    public void setLastUpdated(LocalDate lastUpdated) {
         this.lastUpdated = lastUpdated;
     }
 
@@ -20,13 +20,42 @@ public class Menu {
         this.items = items;
     }
 
-    public Date getLastUpdated() {
+    public LocalDate getLastUpdated() {
         return lastUpdated;
     }
 
-    public ArrayList<MenuItem> getItems() {
+    public ArrayList<MenuItem> getMenuItems() {
         return items;
     }
+
+    public void addMenuItem(MenuItem item) {
+        this.items.add(item);
+        this.lastUpdated = LocalDate.now();
+    }
+
+    public void removeMenuItem(String itemName){
+        MenuItem toBeRemoved = null;
+        for(MenuItem item: this.items) {
+            if(itemName.equals(item.getName())){
+                toBeRemoved = item;
+            }
+        }
+        if(toBeRemoved != null) {
+            this.items.remove(toBeRemoved);
+        }
+    }
+
+
+    @Override
+    public String toString(){
+        String outPut = "";
+        for (MenuItem item: this.items) {
+            outPut += item.toString() + "\n";
+        }
+        outPut += this.lastUpdated;
+        return outPut;
+    }
+
 }
 
 
