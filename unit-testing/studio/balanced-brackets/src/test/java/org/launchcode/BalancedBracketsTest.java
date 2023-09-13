@@ -54,5 +54,20 @@ class BalancedBracketsTest {
         assertFalse(BalancedBrackets.hasBalancedBrackets("{{{}}[][["));
     }
 
+    @Test
+    public void missingCurlyBracket(){
+        assertFalse(BalancedBrackets.hasBalancedBrackets("{}{"));
+    }
+
+    @Test
+    public void bracketsSplittingWord(){
+        assertTrue(BalancedBrackets.hasBalancedBrackets("Launch[]Code"));
+    }
+
+    @Test
+    public void manyFinishedBracketsReturnsTrue(){
+        assertTrue(BalancedBrackets.hasBalancedBrackets("{{{}}}"));
+    }
+
 
 }
