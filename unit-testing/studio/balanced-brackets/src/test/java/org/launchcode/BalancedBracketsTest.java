@@ -10,7 +10,7 @@ class BalancedBracketsTest {
     //False = ][, LaunchCode ][, ][LaunchCode, Launch]Code[, ]]][[[
 
     @Test
-    public void onlyBrackestsReturnTrue() {
+    public void onlyBracketsReturnTrue() {
         assertTrue(BalancedBrackets.hasBalancedBrackets("[]"));
     }
 
